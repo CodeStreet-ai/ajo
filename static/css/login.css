@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    text-align: center;
+}
+
+body, .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-signin {
+   text-align: center;
+
+}
+form {
+    display: inline-block;
+}
+
+.sr-only
+{
+    display:none;
+
+}
+
+input[type=email], input[type=password] {
+    display: block;
+    padding:4px 2px;
+    border:solid 1px  yellowgreen;;
+    width:250px;
+    height: 40px;
+}
+
+button[type=submit] {
+    background-color: transparent;
+    margin: 20px;
+    width:250px;
+    height: 40px;
+    font-size: 20px;
+    color:  #149937;
+    border: 2px solid yellowgreen;
+    border-radius: 10px;
+}
+
+.font-weight-normal {
+    font-weight: 50;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1">
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', path="/css/home.css") }}>
+        <script src="js/home.js" async></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+               <nav class="menu">
+                   <ul>
+                       <li><a href="#"><img src={{url_for('static', path="/images/share.png")}} width="25"></a></li>
+                       <li><a href="#"><img src={{url_for('static', path="/images/print.png")}} width="25"></a></li>
+                       <li><a href="#"><img src={{url_for('static', path="/images/download.png") }} width="25"></a></li>
+                       <li><a href="#"><img src={{url_for('static', path="/images/account.png") }} width="25"></a></li>
+                   </ul>
+               </nav>
+            </header>
+            <main class="content-upper">
+                <fieldset>
+                    <legend>Salary Percentage Split</legend>
+                    <table>
+                        <tr>
+                            <td><label for="other">Other:</label></td>
+                            <td class="td-range"><input type="range" id="other" min="0" max="100" step="" value="60"
+                                    oninput="this.nextElementSibling.value = this.value"><output>60</output>%</td>
+                        </tr>
+                        <tr>
+                            <td><label for="mojo">Mojo:</label></td>
+                            <td class="td-range"><input type="range" id="mojo" min="0" max="100" step="5" value="20"
+                                    oninput="this.nextElementSibling.value = this.value"><output>20</output>%</td>
+                        </tr>
+                        <tr>
+                            <td><label for="smile">Smile:</label></td>
+                            <td class="td-range"><input type="range" id="smile" min="0" max="100" step="5" value="10"
+                                    oninput="this.nextElementSibling.value = this.value"><output>10</output>%</td>
+                        </tr>
+                        <tr>
+                            <td><label for="smile">Spouge:</label></td>
+                            <td class="td-range"><input type="range" id="spouge" min="0" max="100" step="5" value="10"
+                                    oninput="this.nextElementSibling.value = this.value"><output>10</output>%</td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+            </main>
+            <main class="content-bottom">
+                <fieldset>
+                    <legend class="legend-header">Target Outcome</legend>
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <fieldset>
+                                    <legend>Mojo progress</legend>
+                                    <progress value="10" max="100"></progress>
+                                </fieldset>
+                            </td>
+                            <td rowspan="2">
+                                <fieldset>
+                                    <legend>Mojo Goal</legend>
+                                    <p>$0.0</p>
+                                </fieldset>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <fieldset>
+                                    <legend>Smile</legend>
+                                    <p>$0.0</p>
+                                </fieldset>
+                            </td>
+                            <td >
+                                <fieldset>
+                                    <legend>Spouge</legend>
+                                    <p>$0.0</p>
+                                </fieldset>
+                            </td>
+                        </tr>
+
+                    </table>
+                </fieldset>
+
+            </main>
+            <nav class="sidebar">
+                <fieldset>
+                    <Legend class="legend-header">Salary Configuration</Legend>
+                    <form>
+                        <fieldset>
+                            <legend>Period</legend>
+                            <input type="radio" name="period" id="weekly" value="weekly">
+                            <label for="weekly">weekly</label><br>
+                            <input type="radio" name="period" id="fortnightly" value="fortnightly" checked>
+                            <label for="fortnightly">Fortnightly</label><br>
+                            <input type="radio" name="period" id="monthly" value="monthly">
+                            <label for="monthly">Monthly</label><br>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <legend>Salary</legend>
+                            <label for="salary">Fortnight Pay:</label>
+                            <input type="text" name="salary" id="salary" placeholder="$1000">
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <legend>Date</legend>
+                            <input type="date" name="start_date" id="start_date">
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <legend>Set Mojo Target</legend>
+                            <input type="text" name="mojo" id="mojo" placeholder="$">
+                        </fieldset>
+                        <br>
+                        <div class="flipswitch">
+                            <input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs" checked>
+                            <label class="flipswitch-label" for="fs">
+                                <div class="flipswitch-inner"></div>
+                                <div class="flipswitch-switch"></div>
+                            </label>
+                        </div>
+                    </form>
+                </fieldset>
+
+            </nav>
+            <footer class="footer"><center>&#169;2021 CodeStreet</center></footer>
+        </div>
+    </body>
+</html>
