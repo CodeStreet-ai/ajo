@@ -15,3 +15,10 @@ repos:
         description: "Formatting code"
         language: python
         language_version: 3.8.5
+-   repo: https://github.com/PyCQA/flake8
+    rev: 3.8.4
+    hooks:
+    -   id: flake8
+        description: "Styling guide enforcement"
+        language: python
+        language_version: 3.8.5
