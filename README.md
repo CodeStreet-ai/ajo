@@ -5,7 +5,7 @@ Intelligent finance app based on Barefoot Investor.
 ---
 ### 1. clone the git repo:
 ```shell
-git clone Ajo
+git clone git@github.com:CodeStreet-ai/ajo.git
 ```
 ### 2. Change directory to ajo:
 ```shell
