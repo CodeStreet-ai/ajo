@@ -1,2 +1,5 @@
 .DS_Store
 ajo.code-workspace
+__pycache__
+htmlcov
+requirements
