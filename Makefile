@@ -1,19 +1,23 @@
-all: install tests clean
+all: install tests clean app-start
 
-PIP := pip
+RUN := poetry 
 
-TEST := pytest
-
-install:
+install: # install the dependencies
 		@echo "Install dependent packages ..."
-		${PIP} install -r requirements/requirements.txt
-		${PIP} install -r requirements/requirements-dev.txt
+		${RUN} install 
 
-test:
+test: # run test coverage
 		@echo "testing ..."
-		${TEST} tests
+		${RUN} pytest --cov=. --cov-report html
 
-clean:
+quality: # run test, formating the code, check for typing, check if the code is safe
+		@echo "check for linting, Typing, code formating, safety"
+		${RUN} run tox -e py
+
+app-start: # start the application
+		${RUN} run uvicorn ajo.main:app --reload
+
+clean:  # remove unwanted files and folders
 		find . 	-name '__pycache__' -exec rm -rf {} +
 		find . -name '*pyc' -exec rm -rf {} +
 		find . -name '.DS_Store' -exec rm -rf {} +

@@ -20,30 +20,31 @@ git checkout -b <your branch name>
 ```
 
 ### 4. Install dependences:
-if `poetry` is installed on your local machine, kindly run:
-```shell
-poetry install
-```
-
-**Or**
 ```shell
 make install
 ```
-###  5. Test
+###  5. Run Local Test
 ---
 ```shell
 make tests
 ```
-### 6. Run the app:
+###  6. Run Local Test and Quality check
+---
 ```shell
-poetry run uvicorn ajo.main:app --reload
+make quality
 ```
-**Or**
+###  7. Remove __pycache__ on local branch
+---
+```shell
+make clean
+```
 
+### 8. Run the app on local computer:
 ```shell
-uvicorn ajo.main:app --reload
+make app-start
 ```
-### 7. Copy below links to your browser (Chrome):
+
+### 9. Copy below links to your browser (Chrome):
 To see index page:
 ```html
 http://localhost:8000   
