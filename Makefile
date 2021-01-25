@@ -8,7 +8,7 @@ install: # install the dependencies
 
 test: # run test coverage
 		@echo "testing ..."
-		${RUN} pytest --cov=. --cov-report html
+		${RUN} run pytest --cov=. --cov-report html --hypothesis-show-statistics
 
 quality: # run test, formating the code, check for typing, check if the code is safe
 		@echo "check for linting, Typing, code formating, safety"

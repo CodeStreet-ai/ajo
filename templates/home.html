@@ -4,7 +4,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width", initial-scale="1">
         <link rel="stylesheet" type="text/css" href={{ url_for('static', path="/css/home.css") }}>
-        <script src="js/home.js" async></script>
+        <script src={{ url_for('static', path="/js/home.js") }} async></script>
+        <style>
+            button[type=submit] {
+            background-color: transparent;
+            margin: 5px;
+            width:100px;
+            height: 40px;
+            font-size: 20px;
+            color:  #149937;
+            border: 2px solid #149937;
+            border-radius: 10px;
+            float: right;
+        }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -24,22 +37,22 @@
                     <table>
                         <tr>
                             <td><label for="other">Other:</label></td>
-                            <td class="td-range"><input type="range" id="other" min="0" max="100" step="" value="60"
+                            <td class="td-range"><input type="range" id="other" min="60" max="100" step="" value="60"
                                     oninput="this.nextElementSibling.value = this.value"><output>60</output>%</td>
                         </tr>
                         <tr>
                             <td><label for="mojo">Mojo:</label></td>
-                            <td class="td-range"><input type="range" id="mojo" min="0" max="100" step="5" value="20"
+                            <td class="td-range"><input type="range" id="mojo" min="0" max="20" value="20"
                                     oninput="this.nextElementSibling.value = this.value"><output>20</output>%</td>
                         </tr>
                         <tr>
                             <td><label for="smile">Smile:</label></td>
-                            <td class="td-range"><input type="range" id="smile" min="0" max="100" step="5" value="10"
+                            <td class="td-range"><input type="range" id="smile" min="0" max="10" value="10"
                                     oninput="this.nextElementSibling.value = this.value"><output>10</output>%</td>
                         </tr>
                         <tr>
-                            <td><label for="smile">Spouge:</label></td>
-                            <td class="td-range"><input type="range" id="spouge" min="0" max="100" step="5" value="10"
+                            <td><label for="smile">Maintenance:</label></td>
+                            <td class="td-range"><input type="range" id="maintenance" min="0" max="10" value="10"
                                     oninput="this.nextElementSibling.value = this.value"><output>10</output>%</td>
                         </tr>
                     </table>
@@ -54,13 +67,13 @@
                             <td colspan="2">
                                 <fieldset>
                                     <legend>Mojo progress</legend>
-                                    <progress value="10" max="100"></progress>
+                                    <progress value="{{mojo_progress}}" max="100"></progress>
                                 </fieldset>
                             </td>
                             <td rowspan="2">
                                 <fieldset>
                                     <legend>Mojo Goal</legend>
-                                    <p>$0.0</p>
+                                    <p>${{ mojo }}</p>
                                 </fieldset>
                             </td>
                         </tr>
@@ -68,13 +81,13 @@
                             <td>
                                 <fieldset>
                                     <legend>Smile</legend>
-                                    <p>$0.0</p>
+                                    <p>${{smile}}</p>
                                 </fieldset>
                             </td>
                             <td >
                                 <fieldset>
-                                    <legend>Spouge</legend>
-                                    <p>$0.0</p>
+                                    <legend>Maintenance</legend>
+                                    <p>${{maintenance}}</p>
                                 </fieldset>
                             </td>
                         </tr>
@@ -86,7 +99,7 @@
             <nav class="sidebar">
                 <fieldset>
                     <Legend class="legend-header">Salary Configuration</Legend>
-                    <form>
+                    <form method="post">
                         <fieldset>
                             <legend>Period</legend>
                             <input type="radio" name="period" id="weekly" value="weekly">
@@ -100,25 +113,21 @@
                         <fieldset>
                             <legend>Salary</legend>
                             <label for="salary">Fortnight Pay:</label>
-                            <input type="text" name="salary" id="salary" placeholder="$1000">
+                            <input type="text" name="salary" id="salary" placeholder="$" value=0>
                         </fieldset>
                         <br>
                         <fieldset>
                             <legend>Date</legend>
-                            <input type="date" name="start_date" id="start_date">
+                            <input type="date" name="start_date" id="start_date", value="2021-01-01">
                         </fieldset>
                         <br>
                         <fieldset>
                             <legend>Set Mojo Target</legend>
-                            <input type="text" name="mojo" id="mojo" placeholder="$">
+                            <input type="text" name="mojo" id="mojo" placeholder="$", value=0>
                         </fieldset>
                         <br>
-                        <div class="flipswitch">
-                            <input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs" checked>
-                            <label class="flipswitch-label" for="fs">
-                                <div class="flipswitch-inner"></div>
-                                <div class="flipswitch-switch"></div>
-                            </label>
+                        <div class="button">
+                            <button type="submit">Save</button>
                         </div>
                     </form>
                 </fieldset>

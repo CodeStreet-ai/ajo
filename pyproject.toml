@@ -11,6 +11,8 @@ Jinja2 = "^2.11.2"
 aiofiles = "^0.6.0"
 uvicorn = "^0.13.3"
 requests = "^2.25.1"
+python-multipart = "^0.0.5"
+hypothesis = "^6.0.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
