@@ -2,9 +2,20 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
 -   repo: https://github.com/psf/black
-    rev: 20.8b1
+    rev: stable
     hooks:
     -   id: black
+        args: # arguments to configure black
+            -   --line-length=100 
+            -   --exclude="""\.git |
+                \.__pycache__|
+                \.mypy_cache|
+                \.tox|
+                \.python-version|
+                _build|
+                build|
+                dist
+                """
         description: "Formatting code"
         language: python
         language_version: 3.8.5
@@ -12,6 +23,10 @@ repos:
     rev: 3.8.4
     hooks:
     -   id: flake8
+        args: # arguments to configure flake8
+            -   "--max-line-length=100"
+            -   "--max-complexity=18"
+            -   "--ignore=E203,E266,E501,W503,F403,F401,E402"
         description: "Styling guide enforcement"
         language: python
         language_version: 3.8.5
@@ -19,3 +34,7 @@ repos:
     rev: 'v0.790'
     hooks:
       - id: mypy
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: ''  # Use the revision sha / tag you want to point at
+    hooks:
+    -   id: isort

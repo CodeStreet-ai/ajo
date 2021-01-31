@@ -1,139 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1">
-        <link rel="stylesheet" type="text/css" href={{ url_for('static', path="/css/home.css") }}>
-        <script src={{ url_for('static', path="/js/home.js") }} async></script>
-        <style>
-            button[type=submit] {
-            background-color: transparent;
-            margin: 5px;
-            width:100px;
-            height: 40px;
-            font-size: 20px;
-            color:  #149937;
-            border: 2px solid #149937;
-            border-radius: 10px;
-            float: right;
-        }
-        </style>
+        <meta charset="utf-8">
+        <meta name="description" content>
+        <meta name="author" content>
+        <!-- Mobile Specific Metas-->
+        <meta name="viewport" content="width=device-width initial-scale=1">
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', path="/css/home.css" ) }}>
+        <script src={{ url_for('static', path="/js/home.js" ) }} async></script>
     </head>
     <body>
         <div class="container">
-            <header class="header">
-               <nav class="menu">
-                   <ul>
-                       <li><a href="#"><img src={{url_for('static', path="/images/share.png")}} width="25"></a></li>
-                       <li><a href="#"><img src={{url_for('static', path="/images/print.png")}} width="25"></a></li>
-                       <li><a href="#"><img src={{url_for('static', path="/images/download.png") }} width="25"></a></li>
-                       <li><a href="#"><img src={{url_for('static', path="/images/account.png") }} width="25"></a></li>
-                   </ul>
-               </nav>
-            </header>
-            <main class="content-upper">
-                <fieldset>
-                    <legend>Salary Percentage Split</legend>
-                    <table>
-                        <tr>
-                            <td><label for="other">Other:</label></td>
-                            <td class="td-range"><input type="range" id="other" min="60" max="100" step="" value="60"
-                                    oninput="this.nextElementSibling.value = this.value"><output>60</output>%</td>
-                        </tr>
-                        <tr>
-                            <td><label for="mojo">Mojo:</label></td>
-                            <td class="td-range"><input type="range" id="mojo" min="0" max="20" value="20"
-                                    oninput="this.nextElementSibling.value = this.value"><output>20</output>%</td>
-                        </tr>
-                        <tr>
-                            <td><label for="smile">Smile:</label></td>
-                            <td class="td-range"><input type="range" id="smile" min="0" max="10" value="10"
-                                    oninput="this.nextElementSibling.value = this.value"><output>10</output>%</td>
-                        </tr>
-                        <tr>
-                            <td><label for="smile">Maintenance:</label></td>
-                            <td class="td-range"><input type="range" id="maintenance" min="0" max="10" value="10"
-                                    oninput="this.nextElementSibling.value = this.value"><output>10</output>%</td>
-                        </tr>
-                    </table>
+            <header>
+                <fieldset class="field-header">
+                    <p class="user-name">Welcome {{0}}!</p>
+                    <nav class="menu">
+                        <ul>
+                            <li><a href="#"><img src={{url_for('static', path="/images/share.png")}}  width="50"></a></li>
+                            <li><a href="#"><img src={{url_for('static', path="/images/print.png")}} width="50"></a></li>
+                            <li><a href="#"><img src={{url_for('static', path="/images/download.png") }} width="50"></a></li>
+                            <li><a href="#"><img src={{url_for('static', path="/images/account.png") }} width="50"></a></li>
+                        </ul>
+                    </nav>
                 </fieldset>
-
-            </main>
-            <main class="content-bottom">
+            </header>
+            <section class="section-row">
                 <fieldset>
                     <legend class="legend-header">Target Outcome</legend>
                     <table>
                         <tr>
+                            <td>
+                                <fieldset>
+                                    <legend class="legend-row">Start Date</legend>
+                                    <p>{{0}}</p>
+                                </fieldset>
+                            </td>
+                            <td>
+                                <fieldset>
+                                    <legend class="legend-row">Next Contribution</legend>
+                                    <p>{{0}}</p>
+                                </fieldset>
+                            </td>
+                            <td>
+                                <fieldset>
+                                    <legend class="legend-row">Mojo Last Date</legend>
+                                    <p>{{0}}</p>
+                                </fieldset>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2">
                                 <fieldset>
-                                    <legend>Mojo progress</legend>
+                                    <legend class="legend-row">Mojo progress</legend>
                                     <progress value="{{mojo_progress}}" max="100"></progress>
                                 </fieldset>
                             </td>
                             <td rowspan="2">
                                 <fieldset>
-                                    <legend>Mojo Goal</legend>
-                                    <p>${{ mojo }}</p>
+                                    <legend class="legend-row">Mojo Goal</legend>
+                                    <p class="comp-font">${{0}}</p>
                                 </fieldset>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <fieldset>
-                                    <legend>Smile</legend>
-                                    <p>${{smile}}</p>
+                                    <legend class="legend-row">Smile</legend>
+                                    <p class="comp-font">${{0}}</p>
                                 </fieldset>
                             </td>
-                            <td >
+                            <td>
                                 <fieldset>
-                                    <legend>Maintenance</legend>
-                                    <p>${{maintenance}}</p>
+                                    <legend class="legend-row">Maintenance</legend>
+                                    <p class="comp-font">${{0}}</p>
                                 </fieldset>
                             </td>
                         </tr>
-
+                
                     </table>
                 </fieldset>
 
-            </main>
-            <nav class="sidebar">
-                <fieldset>
-                    <Legend class="legend-header">Salary Configuration</Legend>
-                    <form method="post">
-                        <fieldset>
-                            <legend>Period</legend>
-                            <input type="radio" name="period" id="weekly" value="weekly">
-                            <label for="weekly">weekly</label><br>
-                            <input type="radio" name="period" id="fortnightly" value="fortnightly" checked>
-                            <label for="fortnightly">Fortnightly</label><br>
-                            <input type="radio" name="period" id="monthly" value="monthly">
-                            <label for="monthly">Monthly</label><br>
-                        </fieldset>
-                        <br>
-                        <fieldset>
-                            <legend>Salary</legend>
-                            <label for="salary">Fortnight Pay:</label>
-                            <input type="text" name="salary" id="salary" placeholder="$" value=0>
-                        </fieldset>
-                        <br>
-                        <fieldset>
-                            <legend>Date</legend>
-                            <input type="date" name="start_date" id="start_date", value="2021-01-01">
-                        </fieldset>
-                        <br>
-                        <fieldset>
-                            <legend>Set Mojo Target</legend>
-                            <input type="text" name="mojo" id="mojo" placeholder="$", value=0>
-                        </fieldset>
-                        <br>
-                        <div class="button">
-                            <button type="submit">Save</button>
-                        </div>
-                    </form>
-                </fieldset>
-
-            </nav>
-            <footer class="footer"><center>&#169;2021 CodeStreet</center></footer>
+            </section>
         </div>
     </body>
 </html>
